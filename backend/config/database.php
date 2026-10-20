@@ -43,6 +43,29 @@ return [
             'synchronous' => null,
             'transaction_mode' => 'DEFERRED',
         ],
+         
+            'local_mysql' => [
+                'driver' => 'mysql',
+                'host' => env('LOCAL_MYSQL_HOST', '127.0.0.1'),
+                'port' => env('LOCAL_MYSQL_PORT', '3306'),
+                'database' => env('LOCAL_MYSQL_DATABASE', 'sis_local'),
+                'username' => env('LOCAL_MYSQL_USERNAME', 'root'),
+                'password' => env('LOCAL_MYSQL_PASSWORD', ''),
+                'unix_socket' => '',
+                'charset' => 'utf8mb4',
+                'collation' => 'utf8mb4_unicode_ci',
+                'prefix' => '',
+                'prefix_indexes' => true,
+                'strict' => true,
+                'engine' => null,
+                'options' => extension_loaded('pdo_mysql') ? array_filter([
+                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                ]) : [],
+            ],
+  
+        
+
+  
 
         'mysql' => [
             'driver' => 'mysql',
